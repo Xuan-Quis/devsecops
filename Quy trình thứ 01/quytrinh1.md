@@ -1,12 +1,27 @@
-# Triển khai dự án dotnet và react 
+# Quy trình thứ nhất 
 
-## 1. Setup cho gitlab
-Cài đặt gitlab-runner cho server triển khai dự án.
+## I. Giới thiệu
+Trong quy trình đầu tiên này, ta sẽ thiết lập một môi trường CI/CD cơ bản sử dụng gitlab và gitlab-runner.
+
+Ta sẽ triển khai 2 server đó là gitlab-server có nhiệm vụ lưu trữ code và dev-server là server được cài đặt môi trường development và gitlab-runner
+
+## II. Triển khai
+### 1. Setup cho gitlab-server
+
+### 2. Setup cho dev-server
+#### Cài đặt gitlab-runner cho server triển khai dự án.
+```bash
+#
+apt update -y
+#
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+# 
+apt install gitlab-runner
+```
+
 Tắt `auto DevOps` cho các dự án backend và frontend
 ![](images/image.png)
-
-
-### Gitlab-runner có user là gitlab-runner
+#### Gitlab-runner có user là gitlab-runner
 
 thiết lập CI/CD
 
@@ -17,12 +32,14 @@ URL và token được lấy trong setting của CICD/runners trên remote
 
 ở phần enter an excutor bên trên: đây là phần lựa chọn cách chạy, trực tiếp trên server hoặc sử dụng docker hay kubernetes
 
-##### Khi các config bên trên hoàn thành, config sẽ được lưu ở file /etc/gitlab-runner/config.toml
+###### Khi các config bên trên hoàn thành, config sẽ được lưu ở file /etc/gitlab-runner/config.toml
 ![](images/fileconfig.png)
 Thuộc tính concurrent chính là số lượng pipeline có thể chạy đồng thời
-## 2. CI/CD
 
-### Dự án backend-dotnet
+
+### 3. CI/CD
+
+#### Dự án backend-dotnet
 
 
 Tạo branch riêng cho các lần cicd
